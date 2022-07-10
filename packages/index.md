@@ -1,7 +1,28 @@
 ---
-page: true
-heroText: VueUse
-tagline: Collection of Essential<br>Vue Composition Utilities
+layout: home
+sidebar: false
+
+title: VueUse
+titleTemplate: Collection of Essential<br>Vue Composition Utilities
+
+hero:
+  name: VueUse
+  text: Collection of Vue.js challenges
+  tagline: Collection of Essential<br>Vue Composition Utilities
+  image:
+    src: logo.png
+    alt: Vue.js challenges
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /guide/
+    - theme: alt
+      text: All Functions
+      link: /functions
+    - theme: alt
+      text: GitHub
+      link: https://github.com/vueuse/vueuse
+
 description: Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects.
 
 features:

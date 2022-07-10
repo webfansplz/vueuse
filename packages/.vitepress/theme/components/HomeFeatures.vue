@@ -15,8 +15,8 @@ const features = computed<Feature[]>(() => {
 </script>
 
 <template>
-  <section id="highlights" class="vt-box-container">
-    <div v-for="(feature, index) in features" :key="index" class="vt-box">
+  <section id="highlights" class="vp-box-container">
+    <div v-for="(feature, index) in features" :key="index" class="vp-box">
       <h3>{{ feature.title }}</h3>
       <p>{{ feature.details }}</p>
     </div>
@@ -27,14 +27,14 @@ const features = computed<Feature[]>(() => {
 #highlights {
   max-width: 960px;
   margin: 0px auto;
-  color: var(--vt-c-text-2);
+  color: var(--vp-c-text-2);
 }
 
 #highlights h3 {
   font-weight: 600;
   font-size: 20px;
   letter-spacing: -0.4px;
-  color: var(--vt-c-text-1);
+  color: var(--vp-c-text-1);
   transition: color 0.5s;
   margin-bottom: 0.75em;
 }
@@ -44,7 +44,7 @@ const features = computed<Feature[]>(() => {
   font-size: 15px;
 }
 
-#highlights .vt-box {
+#highlights .vp-box {
   background-color: transparent;
 }
 
@@ -74,7 +74,7 @@ const features = computed<Feature[]>(() => {
   #highlights h3 {
     margin-bottom: 0.6em;
   }
-  #highlights .vt-box {
+  #highlights .vp-box {
     padding: 20px 36px;
   }
 }

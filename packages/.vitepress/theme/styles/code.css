@@ -4,61 +4,62 @@ html.dark {
 
 
 /* Color scheme */
-html .vt-doc {
-  --vt-code-comment: #a0ada0;
-  --vt-code-punctuation: #8e8f8b;
-  --vt-code-attribute: #429988;
-  --vt-code-constant: #a65e2b;
-  --vt-code-keyword: #1c6b48;
-  --vt-code-variable: #c2b36e;
-  
-  --vt-code-string: #b56959;
-  --vt-code-boolean: #1c6b48;
-  --vt-code-number: #296aa3;
-  --vt-code-entity: #2993a3;
-  --vt-code-function-name: #6c7834;
-  --vt-code-function: #6c7834;
+html .vp-doc {
+  --vp-code-comment: #a0ada0;
+  --vp-code-punctuation: #8e8f8b;
+  --vp-code-attribute: #429988;
+  --vp-code-constant: #a65e2b;
+  --vp-code-keyword: #1c6b48;
+  --vp-code-variable: #c2b36e;
 
-  --vt-code-inserted: #1c6b48;
-  --vt-code-deleted: #a14f55;
+  --vp-code-string: #b56959;
+  --vp-code-boolean: #1c6b48;
+  --vp-code-number: #296aa3;
+  --vp-code-entity: #2993a3;
+  --vp-code-function-name: #6c7834;
+  --vp-code-function: #6c7834;
+
+  --vp-code-inserted: #1c6b48;
+  --vp-code-deleted: #a14f55;
 }
 
-html.dark .vt-doc {
-  --vt-code-comment: #758575;
-  --vt-code-punctuation: #8e8f8b;
-  --vt-code-attribute: #2f8a89;
-  --vt-code-constant: #a65e2b;
-  --vt-code-keyword: #4d9375;
-  --vt-code-variable: #c2b36e;
-  
-  --vt-code-string: #d48372;
-  --vt-code-boolean: #1c6b48;
-  --vt-code-number: #6394bf;
-  --vt-code-entity: #54b1bf;
-  --vt-code-function-name: #a1b567;
-  --vt-code-function: #a1b567;
+html.dark .vp-doc {
+  --vp-code-comment: #758575;
+  --vp-code-punctuation: #8e8f8b;
+  --vp-code-attribute: #2f8a89;
+  --vp-code-constant: #a65e2b;
+  --vp-code-keyword: #4d9375;
+  --vp-code-variable: #c2b36e;
 
-  --vt-code-inserted: #4d9375;
-  --vt-code-deleted: #bc6066;
+  --vp-code-string: #d48372;
+  --vp-code-boolean: #1c6b48;
+  --vp-code-number: #6394bf;
+  --vp-code-entity: #54b1bf;
+  --vp-code-function-name: #a1b567;
+  --vp-code-function: #a1b567;
+
+  --vp-code-inserted: #4d9375;
+  --vp-code-deleted: #bc6066;
 }
 
 /* Overrides */
-:not(pre) > code {
+:not(pre)>code {
   padding: 1px 6px;
   border-radius: 3px;
 }
 
-a > code {
-  color: var(--vt-c-brand) !important;
+a>code {
+  color: var(--vp-c-brand) !important;
 }
 
-.vt-doc [class*='language-'] pre {
+.vp-doc [class*='language-'] pre {
   padding: 24px;
 }
 
 .shiki-light {
   background: #f9f9f9 !important;
 }
+
 .shiki-dark {
   background: #242424 !important;
 }
@@ -67,6 +68,7 @@ html.dark .shiki-light {
   opacity: 0;
   z-index: -1;
 }
+
 html:not(.dark) .shiki-dark {
   opacity: 0;
   z-index: -1;
@@ -84,12 +86,12 @@ html:not(.dark) .shiki-dark {
   bottom: 0;
 }
 
-.vt-doc div[class*='language-'] {
+.vp-doc div[class*='language-'] {
   background: none !important;
 }
 
 /* Line highlighting */
-/* 
+/*
 .highlight-lines {
   position: absolute;
   top: 0;

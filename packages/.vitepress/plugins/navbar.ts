@@ -20,7 +20,7 @@ export function NavbarFix(): Plugin {
   display: flex;
   align-items: center;
   padding-top: 1px;
-  height: var(--vt-nav-height);
+  height: var(--vp-nav-height);
   transition: opacity 0.25s;
 }
 .VPNavBarTitle:hover {

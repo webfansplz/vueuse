@@ -4,21 +4,21 @@
   --vp-sidebar-width-medium: 220px;
   --vp-sidebar-width-large: 220px;
 
-  --vt-c-brand-active: #44bd87;
+  --vp-c-brand-active: #44bd87;
 
-  --vt-c-disabled-bg: #88888850;
-  --vt-c-disabled-fg: inherit;
+  --vp-c-disabled-bg: #88888850;
+  --vp-c-disabled-fg: inherit;
 }
 
 html.dark {
   color-scheme: dark;
 }
 
-.vt-doc h1 {
+.vp-doc h1 {
   margin: 0 0 1rem;
 }
 
-.vt-doc h2 {
+.vp-doc h2 {
   margin: 32px 0 8px 0;
   border-top: none;
   padding-top: 0;
@@ -26,11 +26,11 @@ html.dark {
   font-size: 22px;
 }
 
-.vt-doc h2 + div[class*='language-'] {
+.vp-doc h2+div[class*='language-'] {
   margin-top: 10px;
 }
 
-.vt-doc h3 + div[class*='language-'] {
+.vp-doc h3+div[class*='language-'] {
   margin-top: 10px;
 }
 
@@ -38,8 +38,8 @@ html.dark {
   width: 220px !important;
 }
 
-.vt-doc .container,
-.vt-doc .content {
+.vp-doc .container,
+.vp-doc .content {
   max-width: 900px !important;
 }
 

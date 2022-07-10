@@ -1,14 +1,8 @@
 // @ts-expect-error missing type
-import base from '@vue/theme/config'
+import { defineConfig } from 'vitepress'
+import type { DefaultTheme as D, UserConfig } from 'vitepress'
 import { currentVersion, versions } from '../../meta/versions'
-import { addonCategoryNames, categoryNames, coreCategoryNames, metadata } from '../../packages/metadata/metadata'
-import highlight from './plugins/highlight'
-
-const themeConfig = async () => {
-  const config = await base()
-  config.markdown.highlight = await highlight()
-  return config
-}
+import { addonCategoryNames, categoryNames, coreCategoryNames, metadata } from '../metadata/metadata'
 
 const Guide = [
   { text: 'Get Started', link: '/guide/' },
@@ -53,13 +47,17 @@ const FunctionsSideBar = getFunctionsSideBar()
 /**
  * @type {import('vitepress').UserConfig}
  */
-const config = {
-  extends: themeConfig,
-
+const config: UserConfig<D.Config> = {
   title: 'VueUse',
   description: 'Collection of essential Vue Composition Utilities',
   lang: 'en-US',
 
+  markdown: {
+    theme: {
+      dark: 'vitesse-dark',
+      light: 'vitesse-light',
+    },
+  },
   themeConfig: {
     logo: '/favicon.svg',
     repo: 'vueuse/vueuse',
@@ -197,4 +195,4 @@ function getFunctionsSideBar() {
   return links
 }
 
-export default config
+export default defineConfig(config)
