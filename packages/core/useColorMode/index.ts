@@ -3,14 +3,14 @@ import { computed, ref, watch } from 'vue-demi'
 import { tryOnMounted } from '@vueuse/shared'
 import type { StorageLike } from '../ssr-handlers'
 import { getSSRHandler } from '../ssr-handlers'
-import type { StorageOptions } from '../useStorage'
+import type { UseStorageOptions } from '../useStorage'
 import { useStorage } from '../useStorage'
 import { defaultWindow } from '../_configurable'
 import { usePreferredDark } from '../usePreferredDark'
 
 export type BasicColorSchema = 'light' | 'dark' | 'auto'
 
-export interface UseColorModeOptions<T extends string = BasicColorSchema> extends StorageOptions<T | BasicColorSchema> {
+export interface UseColorModeOptions<T extends string = BasicColorSchema> extends UseStorageOptions<T | BasicColorSchema> {
   /**
    * CSS Selector for the target element applying to
    *
@@ -60,6 +60,16 @@ export interface UseColorModeOptions<T extends string = BasicColorSchema> extend
    * @default localStorage
    */
   storage?: StorageLike
+
+  /**
+   * Emit `auto` mode from state
+   *
+   * When set to `true`, preferred mode won't be translated into `light` or `dark`.
+   * This is useful when the fact that `auto` mode was selected needs to be known.
+   *
+   * @default undefined
+   */
+  emitAuto?: boolean
 }
 
 /**
@@ -77,6 +87,7 @@ export function useColorMode<T extends string = BasicColorSchema>(options: UseCo
     storageKey = 'vueuse-color-scheme',
     listenToStorageChanges = true,
     storageRef,
+    emitAuto,
   } = options
 
   const modes = {
@@ -95,7 +106,7 @@ export function useColorMode<T extends string = BasicColorSchema>(options: UseCo
 
   const state = computed<T | BasicColorSchema>({
     get() {
-      return store.value === 'auto'
+      return store.value === 'auto' && !emitAuto
         ? preferredMode.value
         : store.value
     },
@@ -129,7 +140,8 @@ export function useColorMode<T extends string = BasicColorSchema>(options: UseCo
     })
 
   function defaultOnChanged(mode: T | BasicColorSchema) {
-    updateHTMLAttrs(selector, attribute, modes[mode] ?? mode)
+    const resolvedMode = mode === 'auto' ? preferredMode.value : mode
+    updateHTMLAttrs(selector, attribute, modes[resolvedMode] ?? resolvedMode)
   }
 
   function onChanged(mode: T | BasicColorSchema) {
